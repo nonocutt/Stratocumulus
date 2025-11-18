@@ -107,8 +107,14 @@ Depending on which version you want to use/build, you’ll need some or all of:
 │   ├── Stratocumulus.amxd
 │   └── supporting Max/MSP & gen~ subpatchers
 │
-└── JUCE_implementation/
-    └── JUCE-based plugin implementation using JIVE for UI
+├── JUCE_implementation/
+│   └── JUCE-based plugin implementation using JIVE for UI
+│
+├── media/
+│   └── Images and assets for the README and UI
+│
+├── README.md (this file)
+└── LICENSE
 ```
 
 - **`src/`** – Max/MSP and RNBO source that defines the core patch (granular engine, pitch detection, parameter mapping, etc.).
