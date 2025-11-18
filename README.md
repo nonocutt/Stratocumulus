@@ -36,7 +36,7 @@ The project contains:
 Stratocumulus is a performance-oriented audio effect/instrument that:
 
 - Tracks the fundamental frequency of a monophonic input signal in real time using a YIN-inspired algorithm
-- Uses that \(f_0 \) estimate to drive a **polyphonic granular synthesizer** controlled by MIDI
+- Uses that $f_0$ estimate to drive a **polyphonic granular synthesizer** controlled by MIDI
 - In the Max for Live version, provides a responsive UI (orb visualizer + envelope view) that reflects density, grain size, stereo spread, and envelope shape in real time
 
 The goal is to treat the live input (e.g., voice, melodic instrument) as the excitation for a playable granular instrument, rather than as a signal that is only processed by an insert effect.
@@ -45,7 +45,7 @@ The goal is to treat the live input (e.g., voice, melodic instrument) as the exc
 
 - It’s designed as a **research/prototype tool** for exploring pitch-tracked granular harmony in real time.
 - It uses a YIN-based pitch tracker tuned for **live performance**, with range constraints, confidence gating, and smoothing to keep the output stable and playable.
-- It also integrates **real-time \(f_0 \) tracking**, **MIDI-driven polyphonic granular synthesis**, and a **performance-focused interface**, allowing performers—particularly vocalists working with keyboardists or sequencers—to articulate harmonies and textures in real time while preserving a clear relationship between source pitch and synthesized output.
+- It also integrates **real-time $f_0$ tracking**, **MIDI-driven polyphonic granular synthesis**, and a **performance-focused interface**, allowing performers—particularly vocalists working with keyboardists or sequencers—to articulate harmonies and textures in real time while preserving a clear relationship between source pitch and synthesized output.
 
 ## Signal Flow
 
@@ -64,9 +64,9 @@ Below is an overview of the main components and signal flow in Stratocumulus.
 ### Pitch tracking
 
 - A YIN-inspired pitch detector runs on overlapping frames of the circular buffer and outputs:
-  - An estimated fundamental frequency \(f_0\)
+  - An estimated fundamental frequency $f_0$
   - A confidence value for each frame
-- Frames with low periodicity or low confidence are rejected; the last reliable \(f_0\) is held to avoid pitch jumps.
+- Frames with low periodicity or low confidence are rejected; the last reliable $f_0$ is held to avoid pitch jumps.
 - An offset is applied to align the detected pitch to the MIDI note to ensure the output matches the input pitches.
 
 ### Granular engine
