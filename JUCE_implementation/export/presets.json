@@ -1,0 +1,46 @@
+[
+  {
+    "name": "harmonizer.rnbopat",
+    "preset": {
+      "Attack": {
+        "value": 200
+      },
+      "Decay": {
+        "value": 200
+      },
+      "Density": {
+        "value": 15
+      },
+      "Dry/Wet": {
+        "value": 72
+      },
+      "Grain_Size": {
+        "value": 160
+      },
+      "Release": {
+        "value": 260
+      },
+      "Spread": {
+        "value": 0
+      },
+      "Stereo": {
+        "value": 50
+      },
+      "Sustain": {
+        "value": 100
+      },
+      "__sps": {
+        "voice": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
+      }
+    }
+  }
+]
