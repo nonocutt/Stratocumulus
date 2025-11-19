@@ -1,5 +1,5 @@
 # build VST3 for all platforms, add AU on MacOS
-set(PLUGIN_FORMATS AU Standalone)
+set(PLUGIN_FORMATS AU Standalone VST3)
 #if (CMAKE_SYSTEM_NAME STREQUAL Darwin)
 #  LIST(APPEND PLUGIN_FORMATS AU)
 #endif()
@@ -16,7 +16,7 @@ set(PLUGIN_FORMATS AU Standalone)
 # the formats specified by the FORMATS arguments. This function accepts many optional arguments.
 # Check the readme at `docs/CMake API.md` in the JUCE repo for the full list.
 
-juce_add_plugin(RNBOAudioPlugin
+juce_add_plugin(Stratocumulus
    VERSION 0.1.0                        # Set this if the plugin version is different to the project version
   # ICON_BIG ...                       # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
   # ICON_SMALL ...
@@ -39,14 +39,14 @@ juce_add_plugin(RNBOAudioPlugin
 # probably don't need to call this.
 
 # the RNBO adapters currently need this
-juce_generate_juce_header(RNBOAudioPlugin)
+juce_generate_juce_header(Stratocumulus)
 
 # `target_sources` adds source files to a target. We pass the target that needs the sources as the
 # first argument, then a visibility parameter for the sources (PRIVATE is normally best practice,
 # although it doesn't really affect executable targets). Finally, we supply a list of source files
 # that will be built into the target. This is a standard CMake command.
 
-target_sources(RNBOAudioPlugin PRIVATE
+target_sources(Stratocumulus PRIVATE
   "${RNBO_CPP_DIR}/adapters/juce/RNBO_JuceAudioProcessor.cpp"
   "${RNBO_CPP_DIR}/adapters/juce/RNBO_JuceAudioProcessorEditor.cpp"
   "${RNBO_CPP_DIR}/RNBO.cpp"
@@ -57,10 +57,10 @@ target_sources(RNBOAudioPlugin PRIVATE
   )
 
 if (EXISTS ${RNBO_BINARY_DATA_FILE})
-  target_sources(RNBOAudioPlugin PRIVATE ${RNBO_BINARY_DATA_FILE})
+  target_sources(Stratocumulus PRIVATE ${RNBO_BINARY_DATA_FILE})
 endif()
 
-target_include_directories(RNBOAudioPlugin
+target_include_directories(Stratocumulus
   PRIVATE
   ${RNBO_CPP_DIR}/
   ${RNBO_CPP_DIR}/src
@@ -82,7 +82,7 @@ if (NOT PLUGIN_PARAM_DEFAULT_NOTIFY)
 	set(RNBO_JUCE_PARAM_DEFAULT_NOTIFY 0)
 endif()
 
-target_compile_definitions(RNBOAudioPlugin
+target_compile_definitions(Stratocumulus
   PUBLIC
   # JUCE_WEB_BROWSER and JUCE_USE_CURL would be on by default, but you might not need them.
   JUCE_WEB_BROWSER=0  # If you remove this, add `NEEDS_WEB_BROWSER TRUE` to the `juce_add_plugin` call
@@ -99,7 +99,7 @@ target_compile_definitions(RNBOAudioPlugin
 # linked automatically. If we'd generated a binary data target above, we would need to link to it
 # here too. This is a standard CMake command.
 
-target_link_libraries(RNBOAudioPlugin
+target_link_libraries(Stratocumulus
   PRIVATE
   juce::juce_audio_processors
   juce::juce_audio_utils
@@ -110,15 +110,3 @@ target_link_libraries(RNBOAudioPlugin
   juce::juce_recommended_lto_flags
   juce::juce_recommended_warning_flags
   )
-#
-##TODO windows and linux
-#if(APPLE)
-#  install(
-#    TARGETS RNBOAudioPlugin_VST3
-#    DESTINATION ~/Library/Audio/Plug-Ins/VST3/
-#    )
-#  install(
-#    TARGETS RNBOAudioPlugin_AU
-#    DESTINATION ~/Library/Audio/Plug-Ins/Components/
-#    )
-#endif()
