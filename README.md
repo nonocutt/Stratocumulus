@@ -6,7 +6,7 @@ It combines a YIN-inspired fundamental frequency tracker with a granular synthes
 The project contains:
 
 - A Max/MSP + RNBO patch
-- A Max for Live (M4L) device
+- Max for Live (M4L) devices for both *Custom YIN* and *IRCAM **yin~*** pitch tracking implementations
 - A C++ export generated from the RNBO patch, suitable for building a JUCE plugin
 - A JUCE/C++ plugin implementation built from the RNBO export
 
@@ -27,6 +27,7 @@ The project contains:
   - [Current JUCE implementation in this repository](#current-juce-implementation-in-this-repository)
 - [Main parameters](#main-parameters)
 - [UI behavior (Max for Live only)](#ui-behavior-max-for-live-only)
+- [Known Issues](#known-issues)
 - [Contact](#contact)
 
 ## Introduction
@@ -104,8 +105,7 @@ Depending on which version you want to use/build, you’ll need some or all of:
 │   └── C++ export generated from the RNBO patch
 │
 ├── M4L/
-│   ├── Stratocumulus.amxd
-│   └── supporting Max/MSP & gen~ subpatchers
+│   └── Max for Live device implementations
 │
 ├── JUCE_implementation/
 │   └── JUCE-based plugin implementation using JIVE for UI
@@ -202,6 +202,10 @@ The Max for Live device exposes the core performance controls and visual feedbac
 - In the **center**, an ADSR envelope graph shows the amplitude shape of the grains over time. The **Attack**, **Decay**, **Sustain**, and **Release** values are reflected in this curve, and changing the parameters updates the graph in real time. The graph can also be clicked and dragged to adjust the envelope shape interactively.
 
 - On the **right**, a small display shows the currently detected pitch (e.g. `C-2`), using C3 as the middle-C reference, and a **Dry/Wet** parameter controls the blend between the original input and the processed granular output, from fully dry to fully wet.
+
+## Known Issues
+
+- The Max for Live device only functions when "Edit with Max" is enabled in Ableton Live and "Preview is On" is enabled in Max.
 
 ## Contact
 
