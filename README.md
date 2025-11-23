@@ -28,6 +28,8 @@ The project contains:
 - [Main parameters](#main-parameters)
 - [UI behavior (Max for Live only)](#ui-behavior-max-for-live-only)
 - [Known Issues](#known-issues)
+- [Future Work](#future-work)
+- [References](#references)
 - [Contact](#contact)
 
 ## Introduction
@@ -215,6 +217,22 @@ The current version of Stratocumulus focuses on a stable core engine and prototy
 - [ ] **Variable grain envelopes** – support multiple grain window shapes (Hann, Gaussian, etc.) with adjustable curvature for finer control of grain articulation.
 - [ ] **Configurable buffer sizes** – exposing buffer and analysis window sizes, so users can tune the trade-off between latency, stability, and texture.
 - [ ] **Configurable tuning and reference pitch** – allow changing the tuning reference (e.g. 440Hz).
+
+## References
+
+- A. de Cheveigné and H. Kawahara, “YIN, a fundamental frequency estimator for speech and music,” *Journal of the Acoustical Society of America*, 111(4), 2002.
+
+- Ed Roberts (toneparticle), *Max/MSP Tutorial | A granular synthesiser built with [codebox] in gen~* (YouTube video).  
+  <https://www.youtube.com/watch?v=VU2TQmxte9A>
+
+- Cycling '74, “RNBO JUCE Template” – example project used as a basis for exporting the RNBO patch to a JUCE-based plugin host.  
+  <https://github.com/Cycling74/rnbo.example.juce>
+
+- IRCAM, `yin~` external for Max/MSP – reference implementation of a YIN-based pitch tracker used for comparison against the custom implementation.
+  <https://forum.ircam.fr/projects/detail/max-sound-box/>
+
+- ImJimmi, “JIVE” – JUCE UI/layout framework used for the plugin interface.  
+  <https://github.com/ImJimmi/JIVE>
 
 ## Contact
 
