@@ -207,6 +207,15 @@ The Max for Live device exposes the core performance controls and visual feedbac
 
 - The Max for Live device only functions when "Edit with Max" is enabled in Ableton Live and "Preview is On" is enabled in Max.
 
+## Future Work
+
+The current version of Stratocumulus focuses on a stable core engine and prototype UI. Planned directions for future development include:
+
+- [ ] **More polished plugin UI** – refining the layout, visual feedback, and preset management for general plugin deployment across DAWs.
+- [ ] **Variable grain envelopes** – support multiple grain window shapes (Hann, Gaussian, etc.) with adjustable curvature for finer control of grain articulation.
+- [ ] **Configurable buffer sizes** – exposing buffer and analysis window sizes, so users can tune the trade-off between latency, stability, and texture.
+- [ ] **Configurable tuning and reference pitch** – allow changing the tuning reference (e.g. 440Hz).
+
 ## Contact
 
 © 2025 Noella Wang
